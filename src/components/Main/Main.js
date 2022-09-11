@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../Main/style.css";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function Main (){
 
@@ -15,6 +16,7 @@ export default function Main (){
 			email: email,
 			password: password
 		};
+        console.log(validation)
     }
 
     return (
@@ -25,14 +27,15 @@ export default function Main (){
 		        <input type="password" value={password} placeholder="Senha" required onChange={e => setPassword(e.target.value)}/>
 		        <button type="submit">Entrar</button>
             </Form>
-            <p>Primeira vez? Cadastre-se!</p>
+            <Link to={'/register'}>
+                <p>Primeira vez? Cadastre-se!</p>
+            </Link>
         </div>
     )
 }
 
 const Form = styled.form`
     width:100%;
-    height:210px;
     padding: 13px 15px;
 
     display:flex;
@@ -74,6 +77,7 @@ const Form = styled.form`
         background-color: #A328D6;
         border-width: 0px;
         border-radius: 5px;
+        cursor: pointer;
 
         color: #FFFFFF;
     }

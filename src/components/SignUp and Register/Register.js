@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "../Main and Register/style.css"
+import "./style.css"
 import { Link } from "react-router-dom"
 import styled from "styled-components";
 

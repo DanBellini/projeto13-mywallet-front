@@ -18,15 +18,9 @@
 .main > a {
     height: 18px;
     margin-top: 25px;
-    text-decoration: none;
 
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 700;
     font-size: 15px;
     line-height: 18px;
-
-    color: #FFFFFF;
 }
 form {
     width:100%;
@@ -41,8 +35,6 @@ input {
     height: 58px;
     margin-bottom:13px;
 
-    font-family: 'Raleway';
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
@@ -59,9 +51,6 @@ button{
     height: 48px;
     margin:auto;
 
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 700;
     font-size: 20px;
     line-height: 23px;
 

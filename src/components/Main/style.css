@@ -1,0 +1,29 @@
+.main {
+    width: 100%;
+    height: 100%;
+
+    margin: 120px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.main > h1{
+    width: 147px;
+    height: 50px;
+}
+
+.main > p {
+    width: 191px;
+    height: 18px;
+    margin-top: 25px;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+
+    color: #FFFFFF;
+}

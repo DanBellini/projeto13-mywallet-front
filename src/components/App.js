@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./Main/Main"
 
 export default function App (){
 

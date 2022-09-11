@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Main from "./Main/Main"
-import Register from "./Register/Register";
+import Main from "./Main and Register/Main"
+import Register from "./Main and Register/Register";
 
 export default function App (){
 

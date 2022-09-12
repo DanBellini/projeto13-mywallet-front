@@ -1,13 +1,16 @@
 import axios from 'axios';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./style.css";
 import styled from "styled-components";
 import { useNavigate, Link } from "react-router-dom";
+import PersonContext from '../../context/PersonData.context';
 
 export default function SignIn (){
 
     const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+    const { setPersonData } = useContext(PersonContext)
+
 
     const navigate = useNavigate();
 
@@ -26,7 +29,8 @@ export default function SignIn (){
             if(requisition.error){
                 return console.log(requisition.response.data)
             }
-            console.log(requisition.data)
+
+            setPersonData(requisition.data)
             navigate('/main')
         } catch (error) {
             console.log(error)

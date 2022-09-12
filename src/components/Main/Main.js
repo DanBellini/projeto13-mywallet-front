@@ -1,37 +1,48 @@
-//import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./style.css"
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
-const historicOfTransactions = [];
- 
-const person = {
-    name: "Daniel",
-    email: "danielbellini@seila.com",
-    senha: "123456",
-    transactions: historicOfTransactions
-}
-
+import PersonContext from "../../context/PersonData.context";
+import axios from "axios";
 
 export default function Main (){
+
+    const { personData } = useContext(PersonContext)
+    const [transactions, setTransactions] = useState([]);
+
+    useEffect(()=>{
+        async function getHistoricOfTransactions(){
+            try {
+                const requisition = await axios.get('http://localhost:4000/transactions', {
+                    headers: {
+                        "authorization": `Bearer ${personData.token}`
+                    }
+                });
+                setTransactions(requisition.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getHistoricOfTransactions();
+    }, [])
 
     return(
         <Container>
             <div className="wallet">
                 <Top>
-                    <h6>Olá, {person.name}</h6>
+                    <h6>Olá, {personData.name}</h6>
                     <Link to={'/'}>
                         <ion-icon name="exit-outline"></ion-icon>
                     </Link>
                 </Top>
                 <div className="transactions">
-                    {person.transactions.length === 0 ? 
+                    {/* {person.transactions.length === 0 ? 
                         <p>Não há registros de entrada ou saída</p>
                     : 
                         <div>
                             <p>Aqui vai ficar o seu Saldo</p>
                         </div>
-                    }
+                    } */}
                 </div>
                 <AddTransactions>
                     <div className="button">

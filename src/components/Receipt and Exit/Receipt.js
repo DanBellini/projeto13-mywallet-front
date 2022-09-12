@@ -49,7 +49,7 @@ export default function Receipt (){
             <h6>Nova Entrada</h6>
             <form onSubmit={transationValidation}>
                 <input type="number" value={value} placeholder="Valor" required onChange={e => setValue(e.target.value)}/>
-                <input type="text" value={description} placeholder="Descrição" maxLength="20" required onChange={e => setDescription(e.target.value)}/>
+                <input type="text" value={description} placeholder="Descrição" maxLength="30" required onChange={e => setDescription(e.target.value)}/>
                 <button type="submit">Salvar entrada</button>
             </form>
             <CancelButton>

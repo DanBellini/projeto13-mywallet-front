@@ -74,14 +74,14 @@ export default function Main (){
                     <div className="button">
                         <Link to={'/receipt'}>
                             <ion-icon name="add-circle-outline"></ion-icon>
-                            <p>Nova Entrada</p>
+                            <p className="width65">Nova Entrada</p>
                         </Link>   
                     </div>
                     <div className="espace"/>
                     <div className="button">
                         <Link to={'/exit'}>
                             <ion-icon name="remove-circle-outline"></ion-icon>
-                            <p>Nova Saída</p>
+                            <p className="width65">Nova Saída</p>
                         </Link>
                     </div>
                 </AddTransactions>

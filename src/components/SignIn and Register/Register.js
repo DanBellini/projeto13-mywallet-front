@@ -33,7 +33,6 @@ export default function Register () {
             if(requisition.error){
                 return console.log(requisition.error.response.data)
             }
-            console.log(requisition.data)
             navigate('/')
         } catch (error) {
             console.log(error)

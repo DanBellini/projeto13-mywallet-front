@@ -1,26 +1,41 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import PersonContext from "../../context/PersonData.context";
 
 export default function Exit (){
 
     const navigate = useNavigate();
     const [value, setValue] = useState("");
     const [description, setDescription] = useState("");
+    const { personData } = useContext(PersonContext)
 
-    function transationValidation (event) {
+    async function transationValidation (event) {
         event.preventDefault();
 
+        const editedDescription = description[0].toUpperCase() + description.substring(1)
+
         const validation = {
-            value: value,
-            description: description,
+            value: parseFloat(value),
+            description: editedDescription,
             type: "exit"
         };
-        if(validation){
-            navigate('/main');
+
+        const headers = {
+            headers: {Authorization: `Bearer ${personData.token}`}
         }
 
-        console.log(validation)
+        try {
+            const requisition = await axios.post('http://localhost:4000/transactions', validation, headers)
+            if(requisition.error){
+                return console.log(requisition.error.response.data)
+            }
+            navigate('/main')
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 

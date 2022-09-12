@@ -20,7 +20,7 @@ export default function Main (){
                 });
                 setTransactions(requisition.data)
             } catch (error) {
-                console.log(error)
+                alert(error.response.data)
             }
         }
         getHistoricOfTransactions();
@@ -31,7 +31,7 @@ export default function Main (){
             <div key={index}>
                 <span className="data">{object.date}</span>
                 <span className="description">{object.description}</span>
-                <span className="balance" style={object.type === "exit" ? {color:'red'} : {color:'green'}}>{object.value}</span> 
+                <span className="balance" style={object.type === "exit" ? {color:'red'} : {color:'green'}}>{object.value/100}</span> 
             </div>
         ))
     };
@@ -65,7 +65,7 @@ export default function Main (){
                             </div>
                             <div className="yourBalance">
                                 <h5>Saldo:</h5>
-                                <h5 style={balance <= 0 ? {color:'red'}:{color:'green'}}>{balance}</h5>
+                                <h5 style={balance <= 0 ? {color:'red'}:{color:'green'}}>{balance/100}</h5>
                             </div>
                         </div>
                     } 

@@ -15,9 +15,14 @@ export default function Exit (){
         event.preventDefault();
 
         const editedDescription = description[0].toUpperCase() + description.substring(1)
+        const editedValue = Math.round(value*100)
+        
+        if(editedValue === 0){
+            return alert("Valor muito baixo!")
+        }
 
         const validation = {
-            value: parseFloat(value),
+            value: editedValue,
             description: editedDescription,
             type: "exit"
         };
@@ -34,7 +39,7 @@ export default function Exit (){
             navigate('/main')
 
         } catch (error) {
-            console.log(error)
+            alert(error.response.data)
         }
     }
 

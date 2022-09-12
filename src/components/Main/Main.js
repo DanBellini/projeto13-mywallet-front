@@ -44,8 +44,6 @@ export default function Main (){
             return previus - current.value
         }, 0)
     };
-
-    console.log(transactions)
     const balance = calculateBalance()
 
     return(

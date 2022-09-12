@@ -21,10 +21,14 @@ export default function Register () {
 
         }
 
+        const editedName = name.toLowerCase().replace(/(?:^|\s)\S/g, function(a) {
+            return a.toUpperCase();
+        })
+
         const validation={
             email: email,
             password: password,
-            name:name
+            name: editedName
         }
 
         try {

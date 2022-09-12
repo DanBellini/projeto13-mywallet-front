@@ -24,6 +24,13 @@ h1{
   color: #FFFFFF;
 }
 
+h5{
+  font-size: 17px;
+  line-height: 20px;
+
+  color: #000000;
+}
+
 h6 {
   font-size: 26px;
   line-height: 31px;

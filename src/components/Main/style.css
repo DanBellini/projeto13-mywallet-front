@@ -32,6 +32,87 @@
     color: #868686;
 }
 
+.transactions > div {
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.yourTransactions {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.yourTransactions > div {
+    width: 100%;
+    height: 30px;
+    padding: 2px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.data{
+    width: 48px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    display: flex;
+    align-items: center;
+    text-align: left;
+
+    color: #C6C6C6;
+}
+
+.description{
+    width: 100%;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    display: flex;
+    align-items: center;
+
+    text-align: left;
+    margin-left: 10px;
+
+    color: #000000;
+
+}
+
+.balance{
+    width: 62px;
+    text-align:end;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.yourBalance{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: flex-end;
+}
 
 .button{
     width: 100%;

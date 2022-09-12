@@ -31,7 +31,7 @@ export default function Register () {
 
             const requisition = await axios.post('http://localhost:4000/register', validation)
             if(requisition.error){
-                return
+                return console.log(requisition.error.response.data)
             }
             console.log(requisition.data)
             navigate('/')

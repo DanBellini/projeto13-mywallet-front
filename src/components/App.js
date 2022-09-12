@@ -4,12 +4,13 @@ import Main from "./Main/Main";
 import Receipt from "./Receipt and Exit/Receipt";
 import Exit from "./Receipt and Exit/Exit";
 import SignIn from "./SignIn and Register/SignIn";
+
 import PersonContext from "../context/PersonData.context"
 import { useState } from "react";
 
 export default function App (){
 
-    const [personData, setPersonData] = useState()
+    const [personData, setPersonData] = useState(null);
 
     return(
         <PersonContext.Provider value={{personData, setPersonData}}>

@@ -9,8 +9,8 @@ export default function SignIn (){
 
     const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-    const { setPersonData } = useContext(PersonContext)
 
+    const { setPersonData } = useContext(PersonContext)
 
     const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ export default function SignIn (){
             const requisition = await axios.post('http://localhost:4000/singin', validation);
 
             if(requisition.error){
-                return console.log(requisition.response.data)
+                return console.log(requisition.error.response.data)
             }
 
             setPersonData(requisition.data)

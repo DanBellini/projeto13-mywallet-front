@@ -26,6 +26,28 @@ export default function Main (){
         getHistoricOfTransactions();
     }, [])
 
+    function RenderTransactions(){
+        return transactions.map((object, index) => (
+            <div key={index}>
+                <span className="data">{object.date}</span>
+                <span className="description">{object.description}</span>
+                <span className="balance" style={object.type === "exit" ? {color:'red'} : {color:'green'}}>{object.value}</span> 
+            </div>
+        ))
+    };
+
+    function calculateBalance(){
+        return transactions.reduce((previus, current) =>{
+            if (current.type === "receipt"){
+                return previus + current.value;
+            }
+            return previus - current.value
+        }, 0)
+    };
+
+    console.log(transactions)
+    const balance = calculateBalance()
+
     return(
         <Container>
             <div className="wallet">
@@ -36,13 +58,19 @@ export default function Main (){
                     </Link>
                 </Top>
                 <div className="transactions">
-                    {/* {person.transactions.length === 0 ? 
+                    {transactions.length === 0 ? 
                         <p>Não há registros de entrada ou saída</p>
                     : 
                         <div>
-                            <p>Aqui vai ficar o seu Saldo</p>
+                            <div className="yourTransactions">
+                            {RenderTransactions()}
+                            </div>
+                            <div className="yourBalance">
+                                <h5>Saldo:</h5>
+                                <h5 style={balance <= 0 ? {color:'red'}:{color:'green'}}>{balance}</h5>
+                            </div>
                         </div>
-                    } */}
+                    } 
                 </div>
                 <AddTransactions>
                     <div className="button">

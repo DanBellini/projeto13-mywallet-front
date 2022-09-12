@@ -1,23 +1,37 @@
+import axios from 'axios';
 import { useState } from "react";
 import "./style.css";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
-export default function SignUp (){
+export default function SignIn (){
 
     const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-    function loginValidation (event) {
+    const navigate = useNavigate();
+
+    async function loginValidation (event) {
         event.preventDefault();
-	//	const requisicao = axios.post("https://minha-api.com/login", {
 
         const validation ={
 			email: email,
 			password: password
 		};
-        console.log(validation)
-    }
+        
+        try {
+            
+            const requisition = await axios.post('http://localhost:4000/singin', validation);
+
+            if(requisition.error){
+                return console.log(requisition.response.data)
+            }
+            console.log(requisition.data)
+            navigate('/main')
+        } catch (error) {
+            console.log(error)
+        }
+    };
 
     return (
 

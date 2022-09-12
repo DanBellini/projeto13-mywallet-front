@@ -1,28 +1,42 @@
+import axios from "axios";
 import { useState } from "react"
 import "./style.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import styled from "styled-components";
 
 export default function Register () {
+
+    const navigate = useNavigate();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    function registerValidation (event){
+    async function registerValidation (event){
         event.preventDefault();
 
         if(confirmPassword !== password){
             return alert('As senhas não são iguais. Tente novamente.')
 
-        }else{
-            const validation={
-                email: email,
-                password: password,
-                name:name
+        }
+
+        const validation={
+            email: email,
+            password: password,
+            name:name
+        }
+
+        try {
+
+            const requisition = await axios.post('http://localhost:4000/register', validation)
+            if(requisition.error){
+                return
             }
-            console.log(validation)
+            console.log(requisition.data)
+            navigate('/')
+        } catch (error) {
+            console.log(error)
         }
     }
 
